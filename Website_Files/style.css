@@ -5,25 +5,31 @@
 }
 
 :root {
-      --primary-color: #38bdf8;      /* Ice blue */
-    --secondary-color: #0ea5e9;
-    --accent-color: #7dd3fc;
+         --primary-color: #22d3ee;      /* Cyan glow */
+    --secondary-color: #0ea5e9;    /* Strong blue */
+    --accent-color: #67e8f9;       /* Soft highlight */
 
-    --dark-bg: #020617;            /* Midnight */
-    --light-bg: #0f172a;
+    /* Ultra Dark Backgrounds */
+    --dark-bg: #020617;            /* Near-black navy */
+    --light-bg: #030712;           /* Deep slate */
 
-    --text-primary: #e5e7eb;
-    --text-secondary: #94a3b8;
+    /* Card / Section */
+    --card-bg: #020617;
 
+    /* Text Colors */
+    --text-primary: #e5e7eb;       /* Soft white */
+    --text-secondary: #9ca3af;     /* Muted gray */
+
+    /* Gradient (cool & dark-friendly) */
     --gradient: linear-gradient(
-        120deg,
-        #38bdf8 0%,
+        135deg,
+        #22d3ee 0%,
         #0ea5e9 50%,
-        #7dd3fc 100%
+        #0284c7 100%
     );
 
-    --card-bg: #020617;
-    --shadow: 0 20px 60px rgba(56, 189, 248, 0.18);
+    /* Glow Shadow (not too flashy) */
+    --shadow: 0 15px 50px rgba(34, 211, 238, 0.25);
 }
 
 html {
