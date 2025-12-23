@@ -345,28 +345,23 @@ body {
 .blob {
     display: none;
 }
-
 .profile-card {
-      width: 350px;
+    width: 350px;
     height: 350px;
     background: var(--card-bg);
     border-radius: 20px;
     box-shadow: var(--shadow);
     border: 3px solid var(--primary-color);
-    animation: none;
-}
 
-.profile-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;     /* REQUIRED */
+    overflow: hidden;       /* REQUIRED */
+}
+.profile-card img {
     width: 100%;
     height: 100%;
-    background: var(--gradient);
-    opacity: 0.1;
+    object-fit: cover;      /* KEY FIX */
+    display: block;
 }
-
 .profile-initials {
     font-size: 8rem;
     font-weight: 700;
