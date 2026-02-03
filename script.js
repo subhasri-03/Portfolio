@@ -14,7 +14,7 @@ const delayBetweenTexts = 2000;
 
 function type() {
     const currentText = texts[textIndex];
-    
+
     if (isDeleting) {
         typingElement.textContent = currentText.substring(0, charIndex - 1);
         charIndex--;
@@ -22,14 +22,14 @@ function type() {
         typingElement.textContent = currentText.substring(0, charIndex + 1);
         charIndex++;
     }
-    
+
     if (!isDeleting && charIndex === currentText.length) {
         setTimeout(() => isDeleting = true, delayBetweenTexts);
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         textIndex = (textIndex + 1) % texts.length;
     }
-    
+
     const speed = isDeleting ? deletingSpeed : typingSpeed;
     setTimeout(type, speed);
 }
@@ -179,7 +179,7 @@ class Particle {
         this.x += this.speedX;
         this.y += this.speedY;
 
-        if (this.x < 0 || this.x > this.canvas.width || 
+        if (this.x < 0 || this.x > this.canvas.width ||
             this.y < 0 || this.y > this.canvas.height) {
             this.reset();
         }
@@ -202,7 +202,7 @@ const createParticles = () => {
     canvas.style.height = '100%';
     canvas.style.pointerEvents = 'none';
     canvas.style.zIndex = '0';
-    
+
     const hero = document.querySelector('.hero');
     hero.style.position = 'relative';
     hero.insertBefore(canvas, hero.firstChild);
@@ -220,7 +220,7 @@ const createParticles = () => {
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
+
         particles.forEach(particle => {
             particle.update();
             particle.draw();
@@ -264,21 +264,21 @@ const contactForm = document.getElementById('contactForm');
 
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
-    
+
     // Create Gmail compose URL
     const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=subhasriofficial03@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-    
+
     // Open Gmail in new tab
     window.open(gmailUrl, '_blank');
-    
+
     // Show success message
     alert('Opening Gmail to send your message!');
-    
+
     // Reset form
     contactForm.reset();
 });
@@ -319,7 +319,7 @@ interactiveElements.forEach(el => {
         cursor.style.height = '40px';
         cursor.style.backgroundColor = 'rgba(20, 184, 166, 0.1)';
     });
-    
+
     el.addEventListener('mouseleave', () => {
         cursor.style.width = '20px';
         cursor.style.height = '20px';
@@ -335,16 +335,16 @@ projectCards.forEach(card => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        
+
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        
+
         const rotateX = (y - centerY) / 10;
         const rotateY = (centerX - x) / 10;
-        
+
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
     });
-    
+
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
     });
@@ -354,7 +354,7 @@ projectCards.forEach(card => {
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const parallaxElements = document.querySelectorAll('.hero-image, .blob');
-    
+
     parallaxElements.forEach(el => {
         const speed = 0.5;
         el.style.transform = `translateY(${scrolled * speed}px)`;
@@ -364,26 +364,26 @@ window.addEventListener('scroll', () => {
 // Add loading animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
-    
+
     // Animate elements on page load
     const heroContent = document.querySelector('.hero-content');
     const heroImage = document.querySelector('.hero-image');
-    
+
     if (heroContent) {
         heroContent.style.opacity = '0';
         heroContent.style.transform = 'translateY(30px)';
-        
+
         setTimeout(() => {
             heroContent.style.transition = 'all 1s ease';
             heroContent.style.opacity = '1';
             heroContent.style.transform = 'translateY(0)';
         }, 100);
     }
-    
+
     if (heroImage) {
         heroImage.style.opacity = '0';
         heroImage.style.transform = 'translateY(30px)';
-        
+
         setTimeout(() => {
             heroImage.style.transition = 'all 1s ease';
             heroImage.style.opacity = '1';
@@ -399,7 +399,7 @@ const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLe
 document.addEventListener('keydown', (e) => {
     konamiCode.push(e.key);
     konamiCode = konamiCode.slice(-10);
-    
+
     if (konamiCode.join('') === konamiSequence.join('')) {
         document.body.style.animation = 'rainbow 2s infinite';
         setTimeout(() => {

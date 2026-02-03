@@ -5,31 +5,38 @@
 }
 
 :root {
-         --primary-color: #22d3ee;      /* Cyan glow */
-    --secondary-color: #0ea5e9;    /* Strong blue */
-    --accent-color: #67e8f9;       /* Soft highlight */
+    --primary-color: #22d3ee;
+    /* Cyan glow */
+    --secondary-color: #0ea5e9;
+    /* Strong blue */
+    --accent-color: #67e8f9;
+    /* Soft highlight */
 
     /* Ultra Dark Backgrounds */
-    --dark-bg: #020617;            /* Near-black navy */
-    --light-bg: #030712;           /* Deep slate */
+    --dark-bg: #020617;
+    /* Near-black navy */
+    --light-bg: #030712;
+    /* Deep slate */
 
     /* Card / Section */
     --card-bg: #020617;
 
     /* Text Colors */
-    --text-primary: #e5e7eb;       /* Soft white */
-    --text-secondary: #9ca3af;     /* Muted gray */
+    --text-primary: #e5e7eb;
+    /* Soft white */
+    --text-secondary: #9ca3af;
+    /* Muted gray */
 
     /* Gradient (cool & dark-friendly) */
-    --gradient: linear-gradient(
-        135deg,
-        #22d3ee 0%,
-        #0ea5e9 50%,
-        #0284c7 100%
-    );
+    --gradient: linear-gradient(135deg,
+            #22d3ee 0%,
+            #0ea5e9 50%,
+            #0284c7 100%);
 
-    /* Glow Shadow (not too flashy) */
+    /* Glow Shadow (Enhaneed Electric) */
     --shadow: 0 15px 50px rgba(34, 211, 238, 0.25);
+    --text-glow: 0 0 15px rgba(34, 211, 238, 0.5);
+    --neon-box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
 }
 
 html {
@@ -163,9 +170,12 @@ body {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotate(0deg);
     }
+
     50% {
         transform: translateY(-20px) rotate(5deg);
     }
@@ -191,6 +201,7 @@ body {
         opacity: 0;
         transform: translateX(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -202,6 +213,7 @@ body {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
+    text-shadow: var(--text-glow);
 }
 
 .gradient-text {
@@ -225,8 +237,15 @@ body {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 .hero-description {
@@ -259,7 +278,7 @@ body {
 .btn-primary {
     background: var(--gradient);
     color: white;
-    box-shadow: 0 4px 15px rgba(20, 184, 166, 0.4);
+    box-shadow: var(--neon-box-shadow);
     position: relative;
     overflow: hidden;
 }
@@ -336,6 +355,7 @@ body {
         opacity: 0;
         transform: translateX(50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -345,6 +365,7 @@ body {
 .blob {
     display: none;
 }
+
 .profile-card {
     width: 350px;
     height: 350px;
@@ -353,15 +374,20 @@ body {
     box-shadow: var(--shadow);
     border: 3px solid var(--primary-color);
 
-    position: relative;     /* REQUIRED */
-    overflow: hidden;       /* REQUIRED */
+    position: relative;
+    /* REQUIRED */
+    overflow: hidden;
+    /* REQUIRED */
 }
+
 .profile-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;      /* KEY FIX */
+    object-fit: cover;
+    /* KEY FIX */
     display: block;
 }
+
 .profile-initials {
     font-size: 8rem;
     font-weight: 700;
@@ -404,6 +430,7 @@ body {
         opacity: 1;
         transform: translateX(-50%) translateY(0);
     }
+
     100% {
         opacity: 0;
         transform: translateX(-50%) translateY(15px);
@@ -420,6 +447,7 @@ section {
     font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
+    text-shadow: var(--text-glow);
 }
 
 /* About Section */
@@ -441,6 +469,7 @@ section {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
